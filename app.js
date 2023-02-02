@@ -123,7 +123,7 @@ app.get("/:listname", function (req, res) {
 
 app.get("/about", function (req, res) {});
 
-const port = process.evn.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.listen(port, function () {
   console.log("Server started on port "+port);
