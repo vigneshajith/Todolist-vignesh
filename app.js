@@ -1,5 +1,7 @@
 const express = require("express");
 const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 app.set("view engine", "ejs");
@@ -37,8 +39,6 @@ const listSchema = {
 
 const List = mongoose.model("List", listSchema);
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 
 app.get("/", function (req, res) {
   const day = date.getDate();
@@ -123,7 +123,7 @@ app.get("/:listname", function (req, res) {
 
 app.get("/about", function (req, res) {});
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 app.listen(port, function () {
   console.log("Server started on port "+port);
