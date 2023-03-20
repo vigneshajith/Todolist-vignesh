@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
 const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 app.set("view engine", "ejs");
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static("public"));
+
 
 require('dotenv').config({ path: 'env/.env' })
 const mdbpassword = process.env.mongodbpassword;
